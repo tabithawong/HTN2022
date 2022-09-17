@@ -7,8 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route("/")
-def start():
-    return "Hello world!"
+def hello():
+    return "Hello, world!"
 
 @app.route('/users', methods=["GET"])
 def users():
