@@ -18,4 +18,6 @@ def users():
         data.append({"username": "user4", "pets": ["hamster"]})
         return flask.jsonify(data)
 
+if __name__ == "__main__":
+    app.run("localhost, 6969")
 
