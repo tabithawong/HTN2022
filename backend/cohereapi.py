@@ -20,7 +20,6 @@ co = cohere.Client(api_key)
 d = {'text': ["I had a wonderful day!", "I had good day", "My day was alright", "My day was bad", "My day was terrible"]}
 
 # you need to give me arr here
-#user_input = arr
 
 def afunc(arr):
     user_input = {'text': arr}

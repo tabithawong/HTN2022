@@ -2,21 +2,6 @@ from flask import Flask, request
 import flask
 import json
 from flask_cors import CORS
-import cohere
-import numpy as np
-import re
-import pandas as pd
-from tqdm import tqdm
-from datasets import load_dataset
-import umap
-import altair as alt
-from sklearn.metrics.pairwise import cosine_similarity
-from annoy import AnnoyIndex
-import warnings
-warnings.filterwarnings('ignore')
-pd.set_option('display.max_colwidth', None)
-import random
-import math
 
 app = Flask(__name__)
 CORS(app)
