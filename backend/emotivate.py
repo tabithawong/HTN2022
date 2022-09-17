@@ -25,6 +25,10 @@ app = Flask(__name__)
 CORS(app)
 
 arr = []
+nodes = []
+connections = []
+ms = ""
+sds = ""
 
 @app.route('/users', methods=["GET", "POST"])
 def users():
@@ -45,7 +49,7 @@ def users():
         message = received_data['data']
         arr.append(message)
         print(arr)
-        print(afunc(arr))
+        nodes, connections, ms, sds = afunc(arr)
         return_data = {"status": "success", "message": f"received: {message}"}
         return flask.Response(response=json.dumps(return_data), status=201)
 
