@@ -19,5 +19,5 @@ def users():
         return flask.jsonify(data)
 
 if __name__ == "__main__":
-    app.run("localhost, 6969")
+    app.run("localhost", 6969)
 
