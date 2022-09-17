@@ -1,14 +1,31 @@
 <html>
+
 <header>
     <title>test</title>
 </header>
 
 <body>
     <div>This is simple test to get data from backend</div>
+
     <div><span>last update:</span><span id="time-container"></span></div>
-    <button onclick="getUsers()">Get user data</button>
-    <div id="result-container"></div>
+
+    <div>
+        <label for=""data-input">Data to send:</label>
+        <input type="text" id="data-input">
+        <button onclick="sendData()">Send data</button>"
+    </div>
+
+    <div>
+        <div id="sent-data-container"></div>
+    </div>
+
+    <hr>
+    <div>
+        <button onclick="getUsers()">Get user data</button>
+        <div id="result-container"></div>
+    </div>
 </body>
+
 <script>
     var xhr = null;
 
@@ -29,6 +46,12 @@
             dataDiv.innerHTML = xhr.responseText;
         }
     }
+
+    function sendDataCallback() {
+        // Check if response is ready or not
+        if (xhr.readyState == 4 & xhr.status == 201
+    }
+
     function getUsers() {
         console.log("Get users...");
         xhr = getXmlHttpRequestObject();
@@ -38,6 +61,7 @@
         // Send the request over the network
         xhr.send(null);
     }
+
     function getDate() {
         date = new Date().toString();
         document.getElementById('time-container').textContent
