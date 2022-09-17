@@ -40,14 +40,15 @@ function sendDataCallback() {
     if (xhr.readyState == 4 && xhr.status == 201) {
         console.log("Data creation response received!");
         getDate();
-        dataDiv = document.getElementbyId('sent-data-container');
+        dataDiv = document.getElementById('sent-data-container');
         // Set current data text
         dataDiv.innerHTML = xhr.responseText;
     }
 }
 
-function sendData() {
-    dataToSend = document.getElementbyId('data-input').value;
+function sendData(arg) {
+    //dataToSend = document.getElementbyId('data-input').value;
+    dataToSend = arg
     if (!dataToSend) {
         console.log("Data is empty.");
         return;

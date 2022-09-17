@@ -11,8 +11,8 @@
 
     <div>
         <label for="data-input">Data to send:</label>
-        <input type="text" id="data-input">
-        <button onclick="sendData()">Send data</button>
+        <input name="data-input" type="text" id="data-input">
+        <button onclick="sendData(document.getElementById('data-input').value)">Send data</button>
     </div>
 
     <div>

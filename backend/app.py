@@ -6,6 +6,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+arr = []
+
 @app.route('/users', methods=["GET", "POST"])
 def users():
     print("users endpoint reached")
@@ -23,6 +25,8 @@ def users():
         received_data = request.get_json()
         print(f"received data: {received_data}")
         message = received_data['data']
+        arr.append(message)
+        print(arr)
         return_data = {"status": "success", "message": f"received: {message}"}
         return flask.Response(response=json.dumps(return_data), status=201)
 
