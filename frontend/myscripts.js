@@ -29,16 +29,6 @@ function sendDataCallback() {
     }
 }
 
-function getUsers() {
-    console.log("Get users...");
-    xhr = getXmlHttpRequestObject();
-    xhr.onreadystatechange = dataCallback;
-    // asynchronous requests
-    xhr.open("GET", "http://localhost:6969/users", true);
-    // Send the request over the network
-    xhr.send(null);
-}
-
 function sendData() {
     dataToSend = document.getElementbyId('data-input').value;
     if (!dataToSend) {
@@ -52,7 +42,17 @@ function sendData() {
     xhr.open("POST", "http://localhost:6969/users", true);
     xhr.setRequestHeader("Content-Type","application/json;charset=UTF-8");
     // sending the request over the network
-    xhr.send(JSON.stringify({"data": dataToSend}));
+    xhr.send(json.stringify({"data": dataToSend}));
+}
+
+function getUsers() {
+    console.log("Get users...");
+    xhr = getXmlHttpRequestObject();
+    xhr.onreadystatechange = dataCallback;
+    // async requests
+    xhr.open("GET", "http://localhost:6969/users", true);
+    // sending the request over the network
+    xhr.send(null);
 }
 
 function getDate() {

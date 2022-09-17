@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import request
+from flask import Flask, request
 import flask
 import json
 from flask_cors import CORS
@@ -11,10 +10,11 @@ CORS(app)
 def hello():
     return "Hello, world!"
 
-@app.route('/users', methods=["GET"])
+@app.route('/users', methods=["GET", "POST"])
 def users():
     print("users endpoint reached...")
     if request.method == "GET":
+        print("get request")
         with open("users.json", "r") as f:
             data = json.load(f)
             data.append({
@@ -23,6 +23,7 @@ def users():
             })
             return flask.jsonify(data)
     if request.method == "POST":
+        print("post request")
         received_data = request.get_json()
         print(f"received data: {received_data}")
         message = received_data['data']
