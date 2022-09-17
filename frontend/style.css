@@ -11,6 +11,10 @@ div1 {
     line-height: 170px;
 }
 
+div {
+    color:grey;
+}
+
 body {
     background: black;
 }
