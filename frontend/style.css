@@ -1,0 +1,16 @@
+
+
+div1 {
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: -webkit-linear-gradient(0.5turn, rgb(189, 33, 144), rgb(48, 188, 234));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: auto;
+    padding: 120px; 
+    line-height: 170px;
+}
+
+body {
+    background: black;
+}
