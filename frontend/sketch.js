@@ -101,12 +101,12 @@ class Graph {
     // vibe
 
     // idx, statement, xval\in[0,1], yval, col
-    arr = [1,'test1',0.5,0.5]
+    /*arr = [1,'test1',0.5,0.5]
     g.addNode(...arr,detColour(arr[2]))
     g.addNode(2,'test2',0.5,0.75,detColour(0.5))
     g.addNode(3,'test3',0.75,0.35,detColour(0.75))
     g.connectNodes(1,2)
-    g.connectNodes(1,3)
+    g.connectNodes(1,3)*/
   }
  
   let url = 'http://localhost:6969/users';
@@ -129,8 +129,8 @@ class Graph {
             g.connectNodes(0,1)
         } else if (edges.length > 2) {
             edges.forEach(edge => {
-                if (edge[1].size >= 1) g.connectNodes(edge[0],edge[1][0])
-                if (edge[1].size >= 2) g.connectNodes(edge[0],edge[1][1])
+                if (edge[1].length >= 1) g.connectNodes(edge[0],edge[1][0])
+                if (edge[1].length >= 2) g.connectNodes(edge[0],edge[1][1])
             })
         }
     })
