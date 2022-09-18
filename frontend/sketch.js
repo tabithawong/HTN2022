@@ -88,6 +88,7 @@ class Graph {
     button.class('colourbutton')
     let em = document.getElementById('editmodal')
     button.parent(em)
+    button.mousePressed(document.getElementById('data-input').value)
     // idx, statement, xval\in[0,1], yval, col
     /*arr = [1,'',0.5,150]
     g.addNode(...arr,detColour(arr[2]))
