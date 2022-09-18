@@ -6,21 +6,36 @@
     <script src="https://kit.fontawesome.com/1ae644d025.js" crossorigin="anonymous"></script>
     <script src="sketch.js"></script>
     <script src="myscripts.js"></script>
+    <script>
+        function openModal(str) {
+            let mto = str + "modal"
+            console.log(document.getElementById(mto).style.display)
+            document.getElementById(mto).style.display === 'none' ? 
+                document.getElementById(mto).style.display = '' :
+                document.getElementById(mto).style.display = 'none'
+        }
+    </script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
 </head>
 <body>
     <div class="title">
-        <h1>Today the world feels___</h1>
+        <h1>Web of Feelings</h1>
         <h2>How are you feeling today?</h2>
-        <button class="colourbutton"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Add your Story</button>
+        <button class="colourbutton" onclick="openModal('edit')"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Add your Story</button>
     </div>
     <div id="sketch"></div>
-    <div id="editmodal"></div>
-    <div>
+    <div id="vibe"></div>
+    <div id="editmodal" style="display: none;">
+        <form>
+            <textarea name="data-input" id="data-input" cols="40" rows="10"></textarea>
+        </form>
+    </div>
+    <div id="infomodal" style="display: none;"></div>
+    <!--div>
         <label for="data-input">Data to send:</label>
         <input name="data-input" type="text" id="data-input">
-        <!--button onclick="sendData(document.getElementById('data-input').value)">Send data</button-->
+        <button onclick="sendData(document.getElementById('data-input').value)">Send data</button>
     </div>
     <div>
         <div id="sent-data-container"></div>

@@ -1,4 +1,4 @@
-let g, button, count = 0;
+let g, button, count = 0, click = true;
 
 class Graph {
     constructor() {
@@ -22,6 +22,8 @@ class Graph {
       }
     }
     eventCheck(fn) {
+      let im = document.getElementById('infomodal')
+      if (im.style.display === 'none') click = true;
       this.currnode = 0
       Object.keys(this.nodes).forEach(n => {
         if (this.nodes[n].x*windowWidth > mouseX - 5 
@@ -29,8 +31,11 @@ class Graph {
             && this.nodes[n].y*100 + 100 > mouseY - 5
             && this.nodes[n].y*100 + 100 < mouseY + 5) {
           this.currnode = n
-          if (mouseIsPressed) {
+          if (click && mouseIsPressed) {
+            click = false;
             fn()
+            im.style.display = ''
+            im.innerHTML = "<p>" + this.nodes[n].info + "</p>" + `<button class="greybutton" onclick="openModal('info')"><i class="fa-solid fa-xmark"></i>&nbsp;Close</button>`
           }
         }
       })
@@ -86,19 +91,22 @@ class Graph {
     let canvas = createCanvas(windowWidth, 300)
     canvas.parent('sketch')
     g = new Graph()
+    // button
     button = createButton('')
     button.html('<i class="fa-solid fa-paper-plane"></i>&nbsp;Submit')
     button.class('colourbutton')
     let em = document.getElementById('editmodal')
     button.parent(em)
     button.mousePressed(onClickFill)
+    // vibe
+
     // idx, statement, xval\in[0,1], yval, col
-    /*arr = [1,'',0.5,150]
+    arr = [1,'test1',0.5,0.5]
     g.addNode(...arr,detColour(arr[2]))
-    g.addNode(2,'',0.5,200,detColour(0.5))
-    g.addNode(3,'',0.75,200,detColour(0.75))
+    g.addNode(2,'test2',0.5,0.75,detColour(0.5))
+    g.addNode(3,'test2',0.75,0.35,detColour(0.75))
     g.connectNodes(1,2)
-    g.connectNodes(1,3)*/
+    g.connectNodes(1,3)
   }
  
   let url = 'http://localhost:6969/users';
