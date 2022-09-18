@@ -1,18 +1,22 @@
 
 
 div1 {
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background: -webkit-linear-gradient(0.5turn,rgb(32, 139, 254),#0C77EA, #C852FF, rgb(252, 73, 57));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: auto;
-    padding: 70px; 
-    line-height: 170px;
+    padding: 5%; 
+    padding-top: 554px;
 }
 
 div {
     color:grey;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: auto;
+    padding-left: 40%;
 }
 
 body {
