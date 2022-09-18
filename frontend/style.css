@@ -31,9 +31,50 @@
     flex-grow: 0;
     align-self: center;
 }
-.colourbutton:hover {
-    background-color: rgba(0,0,0,0.5);
+
+.colourbutton:hover
+{
+    background: linear-gradient(-45deg, #208BFE 0.2%, #C852FF 50.55%, #FC4939 100.2%);
+
+    -webkit-animation: Animation 15s ease infinite;
+    -moz-animation: Animation 15s ease infinite;
+    animation: Animation 5s ease infinite;
 }
+
+@-webkit-keyframes Animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@-moz-keyframes Animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes Animation { 
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .colourbutton > * {
     flex-grow: 0;
 }
