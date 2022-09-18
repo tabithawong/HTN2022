@@ -53,10 +53,15 @@ def users():
         arr.append(message)
         print(arr)
         nodes, connections, ms, sds = afunc(arr)
-        x = ";".join([json.dumps(nodes), json.dumps(connections), ms, sds])
+        x = {
+            "nodes": nodes,
+            "edges": connections,
+            "mean": ms,
+            "var": sds
+        }
+        px = ",".join([json.dumps(nodes), json.dumps(connections), ms, sds])
         print(x)
-        return_data = {"status": "success", "message": f"received: {message}"}
-        return flask.Response(response=json.dumps(return_data), status=201)
+        return flask.Response(response=json.dumps(x), status=201)
 
 def afunc(arr):
     d = {'text': ["I had a wonderful day!", "I had good day", "My day was alright", "My day was bad", "My day was terrible"]}

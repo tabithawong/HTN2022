@@ -1,4 +1,4 @@
-let g, button;
+let g, button, count = 0;
 
 class Graph {
     constructor() {
@@ -26,8 +26,8 @@ class Graph {
       Object.keys(this.nodes).forEach(n => {
         if (this.nodes[n].x*windowWidth > mouseX - 5 
             && this.nodes[n].x*windowWidth < mouseX + 5
-            && this.nodes[n].y > mouseY - 5
-            && this.nodes[n].y < mouseY + 5) {
+            && this.nodes[n].y*100 + 100 > mouseY - 5
+            && this.nodes[n].y*100 + 100 < mouseY + 5) {
           this.currnode = n
           if (mouseIsPressed) {
             fn()
@@ -42,17 +42,20 @@ class Graph {
       this.connections.forEach((arr, idx) => {
         strokeWeight(1)
         arr.forEach(el => {
-          stroke(lerpColor(color(this.nodes[idx].colour),
+          //console.log(`el: ${el}, cons: ${this.connections}`)
+          if (el < this.nodes.size) {
+            stroke(lerpColor(color(this.nodes[idx].colour),
                             color(this.nodes[el].colour),
                             0.5))
-          line(this.nodes[idx].x*windowWidth, this.nodes[idx].y,
-             this.nodes[el].x*windowWidth, this.nodes[el].y)
+            line(this.nodes[idx].x*windowWidth, this.nodes[idx].y*100 + 100,
+              this.nodes[el].x*windowWidth, this.nodes[el].y*100 + 100)
+          }
         })
       })
       Object.keys(this.nodes).forEach(n => {
         strokeWeight(10)
         stroke(this.nodes[n].colour)
-        point(this.nodes[n].x*windowWidth, this.nodes[n].y)
+        point(this.nodes[n].x*windowWidth, this.nodes[n].y*100 + 100)
       })
     }
   }
@@ -88,7 +91,7 @@ class Graph {
     button.class('colourbutton')
     let em = document.getElementById('editmodal')
     button.parent(em)
-    button.mousePressed(onClickFill(document.getElementById('data-input').value))
+    button.mousePressed(onClickFill)
     // idx, statement, xval\in[0,1], yval, col
     /*arr = [1,'',0.5,150]
     g.addNode(...arr,detColour(arr[2]))
@@ -99,16 +102,20 @@ class Graph {
   }
  
   let url = 'http://localhost:6969/users';
-  function onClickFill(postdata) {
-    httpPost(url, 'json', postdata, response => {
-        const values = response.split(';')
-        let nodes = values[0]
-        let edges = values[1]
+  function onClickFill() {
+    postdata = {'data': document.getElementById('data-input').value}
+    httpPost(url, 'text', postdata, response => {
+        console.log(response)
+        const values = JSON.parse(response)
+        console.log(values)
+        let nodes = values['nodes']
+        let edges = values['edges']
+        console.log(edges)
         //let mean = values[2]
         //let varience = values[3]
         g = new Graph()
         nodes.forEach(node => {
-            g.addNode(...node, detColour(arr[2]))
+            g.addNode(...node, detColour(node[2]))
         })
         if (edges.length == 2) {
             g.connectNodes(0,1)
@@ -119,6 +126,7 @@ class Graph {
             })
         }
     })
+    count += 1
   } 
 
   function draw() {
