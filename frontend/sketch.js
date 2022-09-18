@@ -83,7 +83,7 @@ class Graph {
     let canvas = createCanvas(windowWidth, 300)
     canvas.parent('sketch')
     g = new Graph()
-    button = createButton()
+    button = createButton('')
     button.html('<i class="fa-solid fa-paper-plane"></i>&nbsp;Submit')
     button.class('colourbutton')
     let em = document.getElementById('editmodal')
