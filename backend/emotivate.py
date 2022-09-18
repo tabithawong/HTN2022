@@ -130,21 +130,21 @@ def afunc(arr):
         sd /= l
         sd = math.sqrt(sd)
         if (sd > 1):
-            st = "There is high standard deviations in employees today"
+            st = "There is a high standard deviation in mood today"
         if (sd > 2):
-            st = "There is extremely high standard deviations in employees today"
+            st = "There is an extremely high standard deviation in mood today"
         else:
-            st = "Most employees are feeling the same today"
+            st = "Most people are feeling the same mood today"
         if (mean > 0.8):
-            m = "On average the employees are feeling really happy today"
+            m = "On average, people are having a great day today"
         elif (mean > 0.6):
-            m = "On average the employees are feeling happiesh today"
+            m = "On average, people are feeling moderately happy today"
         elif (mean < 0.2):
-            m = "On average the employees are feeling very low today"
+            m = "On average, people are having a bad day today"
         elif (mean < 0.4):
-            m = "On average the employees are feeling sadish today"
+            m = "On average, people are feeling down today"
         else:
-            m = "They're alive"
+            m = "They're alive..."
         return m, st
 
     ms, sds = computeStats(nodes)
