@@ -1,38 +1,34 @@
 <html>
 <head>
+    <meta charset="utf-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-</head>
-<header>
-    <title>test</title>
-</header>
-<link rel="stylesheet" href="style.css">
-<body>
-    <div1>Today the world feels___</div1>
-    <div>How are you feeling today?</div>
-
-    <div><span>last update:</span><span id="time-container"></span></div>
+    <script src="https://kit.fontawesome.com/1ae644d025.js" crossorigin="anonymous"></script>
     <script src="sketch.js"></script>
-    <!--<div>
+    <script src="myscripts.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro">
+</head>
+<body>
+    <div class="title">
+        <h1>Today the world feels___</h1>
+        <h2>How are you feeling today?</h2>
+        <button class="colourbutton"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Add your Story</button>
+    </div>
+    <div id="sketch"></div>
+    <div id="editmodal"></div>
+    <<div>
         <label for="data-input">Data to send:</label>
         <input name="data-input" type="text" id="data-input">
         <button onclick="sendData(document.getElementById('data-input').value)">Send data</button>
     </div>
-
     <div>
         <div id="sent-data-container"></div>
     </div>
-
-    <hr>
-    <div>
+    <!--div>
         <button onclick="getUsers()">Get user data</button>
         <div id="result-container"></div>
     </div>
     -->
 </body>
-
-<script src="myscripts.js"></script>
-
 </html>

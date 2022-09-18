@@ -1,3 +1,5 @@
+let g, button;
+
 class Graph {
     constructor() {
       this.nodes = {}
@@ -77,21 +79,32 @@ class Graph {
     return ret;
   }
   
-  let g;
   function setup() {
-    createCanvas(windowWidth, 400);
-    g = new Graph();
+    let canvas = createCanvas(windowWidth, 300)
+    canvas.parent('sketch')
+    g = new Graph()
+    button = createButton()
+    button.html('<i class="fa-solid fa-paper-plane"></i>&nbsp;Submit')
+    button.class('colourbutton')
+    let em = document.getElementById('editmodal')
+    button.parent(em)
     // idx, statement, xval\in[0,1], yval, col
-    arr = [1,'',0.5,200]
+    /*arr = [1,'',0.5,150]
     g.addNode(...arr,detColour(arr[2]))
-    g.addNode(2,'',0.5,300,detColour(0.5))
-    g.addNode(3,'',0.75,300,detColour(0.75))
+    g.addNode(2,'',0.5,200,detColour(0.5))
+    g.addNode(3,'',0.75,200,detColour(0.75))
     g.connectNodes(1,2)
-    g.connectNodes(1,3)
+    g.connectNodes(1,3)*/
   }
+ 
+  function onClickFill(postdata) {
+    httpPost(url, 'json', postdata, response => {
+        
+    })
+  } 
   
   function draw() {
-    background('black')
+    background('#23242A')
     g.eventCheck(() => {console.log('hello')})
     g.display()
   }

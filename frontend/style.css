@@ -1,24 +1,48 @@
-
-
-div1 {
-    font-size: 30px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: -webkit-linear-gradient(0.5turn,rgb(32, 139, 254),#0C77EA, #C852FF, rgb(252, 73, 57));
+.title {
+    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-weight: 100;
+}
+.title > h1 {
+    font-size: 36px;
+    margin: 0px;
+    padding: 1% 0px;
+    background: linear-gradient(90deg, #FC4939 0.2%, #C852FF 50.55%, #208BFE 100.2%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin: auto;
-    padding: 34%; 
-    padding-top: 85%;
+    align-self: flex-start;
+}
+.title > h2 {
+    font-size: 28px;
+    color: #DDDFE3;
+    margin: 0px;
+    align-self: center;
+    padding: 1%;
+}
+.colourbutton {
+    font-family: 'Open Sans', sans-serif;
+    color: #DDDFE3;
+    background: linear-gradient(90deg, #FC4939 0.2%, #C852FF 50.55%, #208BFE 100.2%);
+    font-size: 24px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border-style: none;
+    flex-grow: 0;
+    align-self: center;
+}
+.colourbutton:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+.colourbutton > * {
+    flex-grow: 0;
 }
 
-div {
-    color:grey;
-    font-size: 25px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin: auto;
-    padding-left: 40%;
+#editmodal {
+    display: none;
 }
 
 body {
-    background: black;
+    padding: 16px;
+    background: #23242A;
 }
