@@ -1,3 +1,4 @@
+from cmath import exp
 from flask import Flask, request
 import flask
 import json
@@ -17,6 +18,8 @@ warnings.filterwarnings('ignore')
 pd.set_option('display.max_colwidth', None)
 import random
 import math
+
+x = ""
 
 api_key = 'Pl9CRr5m9EgVoN0zx8QZDVr7G9pXqQGk2weUGKRz'
 co = cohere.Client(api_key)
@@ -50,6 +53,8 @@ def users():
         arr.append(message)
         print(arr)
         nodes, connections, ms, sds = afunc(arr)
+        x = ";".join([json.dumps(nodes), json.dumps(connections), ms, sds])
+        print(x)
         return_data = {"status": "success", "message": f"received: {message}"}
         return flask.Response(response=json.dumps(return_data), status=201)
 
@@ -116,7 +121,7 @@ def afunc(arr):
         mean /= l
         sd = 0
         for i in main_arr:
-            sd += (i[2] - mean)
+            sd += math.pow((i[2] - mean), 2)
         sd /= l
         sd = math.sqrt(sd)
         if (sd > 1):
