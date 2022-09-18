@@ -84,6 +84,13 @@ def afunc(arr):
         for i in range(user_input.shape[0]):
             similar_item_ids = search_index.get_nns_by_item(i,3, include_distances=True)
             arr.append([i, similar_item_ids[0][1:]])
+        for i in arr:
+            if i[1][0] >= a:
+                i[1].remove(i[1][0])
+                if i[1][0] >= a:
+                    i[1].remove(i[1][0])
+            elif i[1][1] >= a:
+                i[1].remove(i[1][1])
         return arr
 
     connections = getConnections(user_input)

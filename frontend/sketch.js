@@ -43,18 +43,18 @@ class Graph {
     display() {
       strokeWeight(0)
       fill('white')
-      text(`Node: ${this.currnode}`, 20, 20)
+      //text(`Node: ${this.currnode}`, 20, 20)
       this.connections.forEach((arr, idx) => {
         strokeWeight(1)
         arr.forEach(el => {
           //console.log(`el: ${el}, cons: ${this.connections}`)
-          if (el < this.nodes.size) {
+          
             stroke(lerpColor(color(this.nodes[idx].colour),
                             color(this.nodes[el].colour),
                             0.5))
             line(this.nodes[idx].x*windowWidth, this.nodes[idx].y*100 + 100,
               this.nodes[el].x*windowWidth, this.nodes[el].y*100 + 100)
-          }
+          
         })
       })
       Object.keys(this.nodes).forEach(n => {
@@ -104,7 +104,7 @@ class Graph {
     arr = [1,'test1',0.5,0.5]
     g.addNode(...arr,detColour(arr[2]))
     g.addNode(2,'test2',0.5,0.75,detColour(0.5))
-    g.addNode(3,'test2',0.75,0.35,detColour(0.75))
+    g.addNode(3,'test3',0.75,0.35,detColour(0.75))
     g.connectNodes(1,2)
     g.connectNodes(1,3)
   }
@@ -129,8 +129,8 @@ class Graph {
             g.connectNodes(0,1)
         } else if (edges.length > 2) {
             edges.forEach(edge => {
-                g.connectNodes(edge[0],edge[1][0])
-                g.connectNodes(edge[0],edge[1][0])
+                if (edge[1].size >= 1) g.connectNodes(edge[0],edge[1][0])
+                if (edge[1].size >= 2) g.connectNodes(edge[0],edge[1][1])
             })
         }
     })
