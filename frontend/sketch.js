@@ -97,12 +97,29 @@ class Graph {
     g.connectNodes(1,3)*/
   }
  
+  let url = 'http://localhost:6969/users';
   function onClickFill(postdata) {
     httpPost(url, 'json', postdata, response => {
-        
+        const values = response.split(';')
+        let nodes = values[0]
+        let edges = values[1]
+        //let mean = values[2]
+        //let varience = values[3]
+        g = new Graph()
+        nodes.forEach(node => {
+            g.addNode(...node, detColour(arr[2]))
+        })
+        if (edges.length == 2) {
+            g.connectNodes(0,1)
+        } else if (edges.length > 2) {
+            edges.forEach(edge => {
+                g.connectNodes(edge[0],edge[1][0])
+                g.connectNodes(edge[0],edge[1][0])
+            })
+        }
     })
   } 
-  
+
   function draw() {
     background('#23242A')
     g.eventCheck(() => {console.log('hello')})
