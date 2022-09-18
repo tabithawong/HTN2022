@@ -35,10 +35,10 @@
 .colourbutton:hover
 {
     background: linear-gradient(-45deg, #208BFE 0.2%, #C852FF 50.55%, #FC4939 100.2%);
-
+    background-size: 400% 400%;
     -webkit-animation: Animation 15s ease infinite;
     -moz-animation: Animation 15s ease infinite;
-    animation: Animation 5s ease infinite;
+    animation: Animation 15s ease infinite;
 }
 
 @-webkit-keyframes Animation {
